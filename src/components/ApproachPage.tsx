@@ -6,10 +6,11 @@ interface ApproachPageProps {
   ns: 'polmar' | 'magnet' | 'gvl'
   accentFrom: string
   accentTo: string
+  extraContent?: ReactNode
   architectureContent?: ReactNode
 }
 
-export function ApproachPage({ ns, accentFrom, accentTo, architectureContent }: ApproachPageProps) {
+export function ApproachPage({ ns, accentFrom, accentTo, extraContent, architectureContent }: ApproachPageProps) {
   const { t } = useTranslation()
 
   return (
@@ -27,6 +28,8 @@ export function ApproachPage({ ns, accentFrom, accentTo, architectureContent }: 
       {/* Markdown content */}
       <div className="max-w-4xl mx-auto px-4 py-14">
         <MarkdownContent page={ns} />
+
+        {extraContent && <div className="mt-8">{extraContent}</div>}
 
         {/* Architecture section */}
         {architectureContent && (

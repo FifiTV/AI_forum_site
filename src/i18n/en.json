@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "home": "Home",
+    "polmar": "PolMar",
+    "magnet": "MAGNet",
+    "gaussian": "Gaussian Vicinal Loss",
+    "language": "Language"
+  },
+  "home": {
+    "title": "AIForum Project",
+    "subtitle": "Presentation of Research Results",
+    "intro": "Discover three innovative approaches to problem-solving",
+    "selectApproach": "Select an approach below"
+  },
+  "polmar": {
+    "title": "PolMar",
+    "description": "Innovative PolMar approach"
+  },
+  "magnet": {
+    "title": "MAGNet",
+    "description": "Advanced MAGNet method"
+  },
+  "gaussian": {
+    "title": "Gaussian Vicinal Loss",
+    "description": "Modern approach using Gaussian Vicinal Loss"
+  },
+  "footer": {
+    "copyright": "© 2026 AIForum. All rights reserved.",
+    "contact": "Contact",
+    "about": "About"
+  }
+}

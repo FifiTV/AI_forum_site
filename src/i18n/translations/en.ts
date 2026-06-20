@@ -6,27 +6,29 @@ export const en = {
     gvl: 'Gaussian Vicinal Loss',
   },
   home: {
-    title: 'SmartUDL — AI Forum Project',
-    subtitle: 'Some text about the project',
-    description:
-      '',
+    title: 'SmartUDL',
+    subtitle: 'Metal Artefact Reduction in CT',
+    description: 'Three research approaches developed within the AI Forum project: two-stage image-domain correction, a StyleGAN-based generative framework, and a conditional diffusion model with Gaussian Vicinal Loss.',
     approachesTitle: 'Our Approaches',
+    slider: {
+      title: 'The problem: metal artefacts in CT',
+      caption: 'Drag the slider to compare a CT scan with metal artefacts and the corresponding corrected image.',
+      artifact: 'With artefacts',
+      clean: 'After correction',
+    },
     polmar: {
-      title: 'PolMar',
-      description:
-        '[Placeholder]  ',
+      title: 'PolMAR',
+      description: 'A two-stage image-domain metal artefact reduction method. CircNet corrects artefacts in the local polar coordinate system around each implant; the Refiner predicts a residual correction supported by optional auxiliary inputs.',
       learnMore: 'Learn more',
     },
     magnet: {
-      title: 'MAGNet',
-      description:
-        '[Placeholder]',
+      title: 'MAGGNet',
+      description: 'A StyleGAN-based framework generating realistic, volumetrically consistent metal artefacts in CT scans. A content encoder (EC) and a variational artifact encoder (EA) enable independent control over anatomy.',
       learnMore: 'Learn more',
     },
     gvl: {
       title: 'Gaussian Vicinal Loss',
-      description:
-        '[Placeholder] ',
+      description: 'A conditional diffusion model generating metal artefacts with smooth control via a physical feature vector. Gaussian Vicinal Loss weights each batch sample by its distance from the target value, eliminating non-physical step-like learning for sparsely sampled continuous labels.',
       learnMore: 'Learn more',
     },
   },

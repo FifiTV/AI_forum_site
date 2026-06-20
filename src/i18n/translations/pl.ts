@@ -6,27 +6,29 @@ export const pl = {
     gvl: 'Gaussian Vicinal Loss',
   },
   home: {
-    title: 'SmartUDL — Projekt AI Forum',
-    subtitle: 'Trochę tekstu o projekcie',
-    description:
-      '',
+    title: 'SmartUDL',
+    subtitle: 'Redukcja artefaktów metalicznych w CT',
+    description: 'Trzy podejścia badawcze rozwijane w ramach projektu AI Forum: obrazowa korekcja dwuetapowa, framework generatywny oparty na StyleGAN oraz warunkowy model dyfuzyjny z Gaussian Vicinal Loss.',
     approachesTitle: 'Nasze podejścia',
+    slider: {
+      title: 'Problem: artefakty metaliczne w CT',
+      caption: 'Przesuń suwak, aby porównać skan CT z artefaktami metalicznymi i odpowiadający mu obraz po korekcji.',
+      artifact: 'Z artefaktami',
+      clean: 'Po korekcji',
+    },
     polmar: {
-      title: 'PolMar',
-      description:
-        '[Placeholder] ',
+      title: 'PolMAR',
+      description: 'Dwuetapowa redukcja artefaktów metalicznych działająca wyłącznie w przestrzeni obrazu. Etap CircNet koryguje artefakty w lokalnym układzie polarnym wokół implantu, a Refiner przewiduje rezydualną poprawkę wspieraną opcjonalnymi wejściami pomocniczymi.',
       learnMore: 'Dowiedz się więcej',
     },
     magnet: {
-      title: 'MAGNet',
-      description:
-        '[Placeholder] ',
+      title: 'MAGGNet',
+      description: 'Framework oparty na StyleGAN generujący realistyczne i spójne objętościowo artefakty metaliczne w skanach CT. Enkoder treści (EC) i wariacyjny enkoder artefaktów (EA) umożliwiają niezależną kontrolę anatomii.',
       learnMore: 'Dowiedz się więcej',
     },
     gvl: {
       title: 'Gaussian Vicinal Loss',
-      description:
-        '[Placeholder] ',
+      description: 'Warunkowy model dyfuzyjny generujący artefakty metaliczne z ciągłą kontrolą przez wektor cech fizycznych. Gaussian Vicinal Loss waży każdą próbkę w zależności od odległości od wartości docelowej, eliminując niefizyczne, skokowe uczenie przy rzadko próbkowanych etykietach.',
       learnMore: 'Dowiedz się więcej',
     },
   },

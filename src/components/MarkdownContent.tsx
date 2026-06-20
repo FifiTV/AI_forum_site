@@ -2,27 +2,13 @@ import { useTranslation } from 'react-i18next'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
-import polmarPl from '../../public/content/polmar/pl.md?raw'
-import polmarEn from '../../public/content/polmar/en.md?raw'
-import magnetPl from '../../public/content/magnet/pl.md?raw'
-import magnetEn from '../../public/content/magnet/en.md?raw'
-import gvlPl    from '../../public/content/gvl/pl.md?raw'
-import gvlEn    from '../../public/content/gvl/en.md?raw'
-
-const CONTENT: Record<string, Record<string, string>> = {
-  polmar: { pl: polmarPl, en: polmarEn },
-  magnet: { pl: magnetPl, en: magnetEn },
-  gvl:    { pl: gvlPl,   en: gvlEn    },
-}
-
 interface MarkdownContentProps {
   page: 'gvl' | 'polmar' | 'magnet'
 }
 
 export function MarkdownContent({ page }: MarkdownContentProps) {
-  const { i18n } = useTranslation()
-  const lang = i18n.language === 'pl' ? 'pl' : 'en'
-  const content = CONTENT[page]?.[lang] ?? ''
+  const { t } = useTranslation()
+  const content = t(`${page}.text`)
 
   return (
     <Markdown
@@ -32,6 +18,11 @@ export function MarkdownContent({ page }: MarkdownContentProps) {
           <h2 className="text-2xl font-bold text-gray-800 mt-10 mb-4 border-b pb-2 first:mt-0">
             {children}
           </h2>
+        ),
+        h3: ({ children }) => (
+          <h3 className="text-lg font-semibold text-gray-700 mt-6 mb-3">
+            {children}
+          </h3>
         ),
         p: ({ children }) => (
           <p className="text-gray-600 leading-relaxed mb-4">{children}</p>

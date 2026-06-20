@@ -76,7 +76,7 @@ export const en = {
   },
   gvl: {
     title: 'Gaussian Vicinal Loss',
-    subtitle: 'Some text about GVL',
+    subtitle: 'Conditional diffusion model with Gaussian vicinal loss for CT metal artefact generation',
     sections: {
       overview: {
         heading: 'Overview',
@@ -95,9 +95,33 @@ export const en = {
         body: '[Placeholder] ',
       },
     },
+    diagram: {
+      nodes: {
+        ytarget: 'Target y_target',
+        yi: 'Sample y_i',
+        noise_proc: 'Noising process',
+        unet: 'U-Net (AdaLN)\nNoise predictor ε_θ',
+        time: 'Step t',
+        true_noise: 'True noise ε',
+        pred_noise: 'Predicted noise ε_θ',
+        mse: 'Unweighted MSE',
+        gauss: 'Gaussian kernel exp(...)',
+        sigma: 'Width σ',
+        weight: 'Weight w_i',
+        vicinal: 'Vicinal\nLoss',
+      },
+      edges: {
+        noisyImage: 'Noisy image x_t',
+        backprop: 'Backpropagation',
+      },
+      formula: {
+        label: 'Gaussian Vicinal Loss — sample weight',
+        description: 'The closer sample {{yi}} is to target {{ytarget}} in feature space, the higher its contribution to the loss. Parameter {{sigma}} controls the neighbourhood width.',
+      },
+    },
   },
   footer: {
-    copyright: '© {year} SmartUDL — AI Forum Project',
+    copyright: '© {{year}} SmartUDL — AI Forum Project',
     madeWith: 'Built with React & TypeScript',
   },
 }

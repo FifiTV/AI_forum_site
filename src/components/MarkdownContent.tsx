@@ -1,7 +1,19 @@
-import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+
+import polmarPl from '../../public/content/polmar/pl.md?raw'
+import polmarEn from '../../public/content/polmar/en.md?raw'
+import magnetPl from '../../public/content/magnet/pl.md?raw'
+import magnetEn from '../../public/content/magnet/en.md?raw'
+import gvlPl    from '../../public/content/gvl/pl.md?raw'
+import gvlEn    from '../../public/content/gvl/en.md?raw'
+
+const CONTENT: Record<string, Record<string, string>> = {
+  polmar: { pl: polmarPl, en: polmarEn },
+  magnet: { pl: magnetPl, en: magnetEn },
+  gvl:    { pl: gvlPl,   en: gvlEn    },
+}
 
 interface MarkdownContentProps {
   page: 'gvl' | 'polmar' | 'magnet'
@@ -9,23 +21,8 @@ interface MarkdownContentProps {
 
 export function MarkdownContent({ page }: MarkdownContentProps) {
   const { i18n } = useTranslation()
-  const [content, setContent] = useState<string>('')
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const lang = i18n.language === 'pl' ? 'pl' : 'en'
-    const url = `${import.meta.env.BASE_URL}content/${page}/${lang}.md`
-
-    setLoading(true)
-    fetch(url)
-      .then((r) => r.text())
-      .then((text) => { setContent(text); setLoading(false) })
-      .catch(() => { setContent(''); setLoading(false) })
-  }, [page, i18n.language])
-
-  if (loading) {
-    return <div className="animate-pulse h-48 bg-gray-100 rounded-lg" />
-  }
+  const lang = i18n.language === 'pl' ? 'pl' : 'en'
+  const content = CONTENT[page]?.[lang] ?? ''
 
   return (
     <Markdown

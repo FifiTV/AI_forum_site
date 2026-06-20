@@ -98,18 +98,38 @@ export const en = {
     },
   },
   magnet: {
-    title: 'MAGNet',
-    subtitle: 'Some text about MAGNet',
+    title: 'MAGGNet',
+    subtitle: 'StyleGAN-based framework for generating volumetrically consistent metal artefacts in CT',
     arch: {
-      nodes: {
-        phantomScan: 'Metal Phantom Scan',
-        phantomDesc: 'CT scan with metal artifact',
-        anatomyScan: 'Anatomical CT Scan',
-        anatomyDesc: 'Clean anatomy image',
-        combine: 'Combine Features for Augmentation',
-        augmented: 'Augmented Training Sample',
-        anatomyArtifact: 'Anatomy with Simulated Artifact',
+      title: 'MAGGNet Architecture',
+      formula: {
+        label: 'Gradient-based Consistency Metric (GCM)',
+        description: 'Measures structural consistency between adjacent CT slices using cosine similarity of image gradients. ε is a small constant for numerical stability.',
       },
+      edges: {
+        contentCode: 'content code c',
+        artifactCode: 'artifact code z',
+        trainingOnly: 'training only',
+      },
+      nodes: {
+        cleanCT: 'Clean CT scan',
+        guidanceMap: 'Guidance map',
+        phantom: 'Phantom scan',
+        ec: 'EC — Content Encoder',
+        ea: 'EA — Artifact Encoder\n(variational)',
+        sample: 'Sampling\nz ~ N(μ, σ²)',
+        ga: 'GA — Generator\n(StyleGAN)',
+        da: 'DA — Discriminator\n(LSGAN · training only)',
+        outputCT: 'Synthetic CT scan\nwith artifact',
+      },
+    },
+    charts: {
+      gcmTitle: 'Volumetric consistency — GCM results',
+      gcmDesc: 'Higher GCM indicates greater structural consistency between adjacent CT slices.',
+      lowerNote: 'Lower than baseline = artefacts disrupt consistency; MAGGNet minimises this drop.',
+      clean: 'Clean scan',
+      maggnet: 'MAGGNet',
+      random: 'Random',
     },
     sections: {
       overview: {

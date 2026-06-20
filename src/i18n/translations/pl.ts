@@ -98,18 +98,38 @@ export const pl = {
     },
   },
   magnet: {
-    title: 'MAGNet',
-    subtitle: 'Troche tekstu o MAGNet',
+    title: 'MAGGNet',
+    subtitle: 'Framework oparty na StyleGAN do generowania spójnych objętościowo artefaktów metalicznych w CT',
     arch: {
-      nodes: {
-        phantomScan: 'Skan phantomu metalowego',
-        phantomDesc: 'Skan CT z artefaktem metalowym',
-        anatomyScan: 'Skan anatomiczny CT',
-        anatomyDesc: 'Czysty obraz anatomii',
-        combine: 'Łączenie cech do augmentacji',
-        augmented: 'Augmentowana próbka treningowa',
-        anatomyArtifact: 'Anatomia z symulowanym artefaktem',
+      title: 'Architektura MAGGNet',
+      formula: {
+        label: 'Gradient-based Consistency Metric (GCM)',
+        description: 'Mierzy spójność strukturalną między sąsiednimi warstwami CT za pomocą podobieństwa kosinusowego gradientów obrazu. ε stabilizuje mianownik numerycznie.',
       },
+      edges: {
+        contentCode: 'kod treści c',
+        artifactCode: 'kod artefaktu z',
+        trainingOnly: 'tylko trening',
+      },
+      nodes: {
+        cleanCT: 'Czysty skan CT',
+        guidanceMap: 'Maska prowadząca',
+        phantom: 'Skan phantomu',
+        ec: 'EC — Enkoder treści',
+        ea: 'EA — Enkoder artefaktów\n(wariacyjny)',
+        sample: 'Próbkowanie\nz ~ N(μ, σ²)',
+        ga: 'GA — Generator\n(StyleGAN)',
+        da: 'DA — Dyskryminator\n(LSGAN · tylko trening)',
+        outputCT: 'Syntetyczny skan CT\nz artefaktem',
+      },
+    },
+    charts: {
+      gcmTitle: 'Spójność objętościowa — wyniki GCM',
+      gcmDesc: 'Wyższy GCM oznacza wyższą spójność strukturalną między sąsiednimi warstwami CT.',
+      lowerNote: 'Niższy niż baseline = artefakty zaburzają spójność; MAGGNet minimalizuje ten spadek.',
+      clean: 'Czysty skan',
+      maggnet: 'MAGGNet',
+      random: 'Losowe',
     },
     sections: {
       overview: {

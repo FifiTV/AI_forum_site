@@ -2,7 +2,7 @@ export const pl = {
   nav: {
     home: 'Strona główna',
     polmar: 'PolMar',
-    magnet: 'MAGNet',
+    magnet: 'MAGGNet',
     gvl: 'Gaussian Vicinal Loss',
   },
   home: {

@@ -8,7 +8,7 @@ import {
 const baseStyle = { borderRadius: '6px', border: '2px solid', color: '#000', fontSize: '13px', textAlign: 'center' as const }
 
 const styles = {
-  whiteTitle: { ...baseStyle, background: '#fff', borderColor: '#000', padding: '10px 20px', fontWeight: 'bold' },
+  whiteTitle: { ...baseStyle, background: '#fff', borderColor: '#000', padding: '10px 20px', fontWeight: 'bold', width: 250 },
   blueBox:    { ...baseStyle, background: '#e7f1ff', borderColor: '#0d6efd', width: 400, padding: '15px' },
   greenBox:   { ...baseStyle, background: '#d1e7dd', borderColor: '#198754', width: 400, padding: '15px' },
 }
@@ -69,7 +69,7 @@ export default function DiagramCircNet() {
     )
 
     return [
-      { id: 'in',  position: { x: 100, y: 50  }, data: { label: `${n('input')}: [2, 1024, 512]` },                style: styles.whiteTitle, sourcePosition: Position.Bottom },
+      { id: 'in',  position: { x: 75,  y: 50  }, data: { label: `${n('input')}: [2, 1024, 512]` },                style: styles.whiteTitle, sourcePosition: Position.Bottom },
       { id: 'rp',  position: { x: 0,   y: 150 }, data: { label: RadiusProjectorLabel },                          style: styles.blueBox,    sourcePosition: Position.Bottom, targetPosition: Position.Top },
       { id: 'au',  position: { x: 0,   y: 480 }, data: { label: AngleUNetLabel },                                style: styles.greenBox,   sourcePosition: Position.Bottom, targetPosition: Position.Top },
       { id: 'out', position: { x: 75,  y: 880 }, data: { label: `${n('outputImg')}: c(θ,r) ≥ 0  [1024, 512]` }, style: styles.whiteTitle, targetPosition: Position.Top },

@@ -3,6 +3,8 @@ import { ApproachPage } from '../components/ApproachPage'
 import GVLDiagram from '../components/diagrams/gvl'
 import { Formula } from '../components/Formula'
 
+const BASE = import.meta.env.BASE_URL
+
 function GVLArchitecture() {
   const { t, i18n } = useTranslation()
 
@@ -38,6 +40,15 @@ export function GaussianVicinalLoss() {
       ns="gvl"
       accentFrom="from-green-600"
       accentTo="to-green-900"
+      extraContent={
+        <div className="rounded-xl overflow-hidden border border-green-900 shadow-lg">
+          <img
+            src={`${BASE}imgs/gvl/gauss.png`}
+            alt="Gaussian Vicinal Loss example"
+            className="w-full block"
+          />
+        </div>
+      }
       architectureContent={<GVLArchitecture />}
     />
   )
